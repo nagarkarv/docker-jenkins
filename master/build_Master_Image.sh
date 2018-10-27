@@ -1,1 +1,1 @@
-docker build -t jenkins_master_image_1.0 .
+docker build -t jenkins_master_image:v1.0.1 .
