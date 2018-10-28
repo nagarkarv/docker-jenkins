@@ -7,5 +7,5 @@ List<String> JenkinsPlugins = new ArrayList<String>(Jenkins.instance.pluginManag
 JenkinsPlugins.sort {it.getDisplayName()}
 .each{
 	plugin -> 
-  println("${plugin.getShortName()}: ${plugin.getVersion()}")
+  println("${plugin.getShortName()}:${plugin.getVersion()}")
 }
