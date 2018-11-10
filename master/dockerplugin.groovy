@@ -29,19 +29,20 @@ def dockerTemplateBaseParameters = [
 ]
  
 def DockerTemplateParameters = [
-  instanceCapStr: '4',
-  labelString:    'docker.local.jenkins.slave',
+  instanceCapStr: '5',
+  labelString:    'DockerAgent',
   remoteFs:       ''
 ]
  
+// serverUrl is the docker host remote api url
 def dockerCloudParameters = [
-  connectTimeout:   3,
+  connectTimeout:   20,
   containerCapStr:  '4',
   credentialsId:    '',
   dockerHostname:   '',
-  name:             'docker.local',
+  name:             'DockerAgent',
   readTimeout:      60,
-  serverUrl:        'unix:///var/run/docker.sock',
+  serverUrl:        'tcp://172.17.0.1:2376',
   version:          ''
 ]
  

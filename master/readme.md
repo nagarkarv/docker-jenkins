@@ -19,3 +19,5 @@ then run sudo systemctl daemon-reload and sudo systemctl restart docker See resu
 curl http://localhost:2376/info
 
 Ref: https://stackoverflow.com/questions/42987692/docker-enable-remote-http-api-with-systemd-and-daemon-json
+
+Test connection from docker plugin returns - Version = 18.06.1-ce, API Version = 1.38
