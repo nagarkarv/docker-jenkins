@@ -1,19 +1,24 @@
-apiVersion: apps/v1 # for versions before 1.9.0 use apps/v1beta2
-kind: Deployment
+apiVersion: extensions/v1beta1
+kind: Deployment                                          # 1
 metadata:
-  name: jenkins-deployment
+  name: jenkins 
 spec:
-  selector:
-    matchLabels:
-      app: jenkins
-  replicas: 2 # tells deployment to run 2 pods matching the template
-  template:
+  replicas: 2                                             # 2
+  minReadySeconds: 15
+  strategy:
+    type: RollingUpdate                                   # 3
+    rollingUpdate: 
+      maxUnavailable: 1                                   # 4
+      maxSurge: 1                                         # 5
+  template:                                               # 6
     metadata:
       labels:
-        app: jenkins
+        app: jenkins                                  # 7
     spec:
       containers:
-      - name: jenkins
-        image: vikramnagarkar/jenkins_master_image:v1.0.1
-        ports:
-        - containerPort: 8080
+        - image: vikramnagarkar/jenkins_master_image:v1.0.1
+          imagePullPolicy: Always                         # 8
+          name: jenkins 
+          ports:
+            - containerPort: 8080 
+

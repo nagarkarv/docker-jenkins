@@ -1,11 +1,12 @@
-kind: Service
 apiVersion: v1
+kind: Service              # 1
 metadata:
-  name: jenkins
+  name: jenkins 
 spec:
-  selector:
-    app: jenkins
+  type: LoadBalancer       # 2
   ports:
-  - protocol: TCP
-    port: 8080
-    targetPort: 8080
+  - port: 80               # 3
+    protocol: TCP          # 4
+    targetPort: 80         # 5
+  selector:                # 6
+    app: jenkins       # 7
