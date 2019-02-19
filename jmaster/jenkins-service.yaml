@@ -4,9 +4,11 @@ metadata:
   name: jenkins 
 spec:
   type: LoadBalancer       # 2
-  ports:
-  - port: 80               # 3
-    protocol: TCP          # 4
-    targetPort: 80         # 5
+  ports: 
+  - name: http
+    port: 8080
+    targetPort: 8080
+    nodePort: 30001 
+    protocol: TCP
   selector:                # 6
     app: jenkins       # 7
